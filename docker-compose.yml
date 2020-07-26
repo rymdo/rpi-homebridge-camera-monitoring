@@ -23,6 +23,7 @@ services:
   ffmpeg-camera:
     build: ./ffmpeg-camera
     restart: always
+    network_mode: host
     environment:
       - RTSP_SERVER_URL=rtsp://rtsp-server:8554/mystream
     devices:
