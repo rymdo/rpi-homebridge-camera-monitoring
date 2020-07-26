@@ -16,3 +16,16 @@ services:
       - HOMEBRIDGE_CONFIG_UI_PORT=9090
     volumes:
       - homebridge:/homebridge
+  rtsp-server:
+    image: aler9/rtsp-simple-server:latest
+    restart: always
+    network_mode: host
+  ffmpeg-camera:
+    build: ./ffmpeg-camera
+    restart: always
+    environment:
+      - RTSP_SERVER_URL=rtsp://rtsp-server:8554/mystream
+    devices:
+      - /dev/video0:/dev/video
+    depends_on:
+      - rtsp-server
