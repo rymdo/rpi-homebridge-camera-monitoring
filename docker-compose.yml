@@ -25,7 +25,7 @@ services:
     restart: always
     network_mode: host
     environment:
-      - RTSP_SERVER_URL=rtsp://rtsp-server:8554/mystream
+      - RTSP_SERVER_URL=rtsp://127.0.0.1:8554/mystream
     devices:
       - /dev/video0:/dev/video
     depends_on:
