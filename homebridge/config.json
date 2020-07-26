@@ -1,0 +1,28 @@
+{
+  "bridge": {
+    "name": "",
+    "username": "",
+    "port": 0,
+    "pin": ""
+  },
+  "accessories": [],
+  "platforms": [
+    {
+      "platform": "Camera-ffmpeg",
+      "cameras": [
+        {
+          "name": "MyCam",
+          "videoConfig": {
+            "source": "-i rtsp://127.0.0.1:8554/mystream",
+            "stillImageSource": "-i rtsp://127.0.0.1:8554/mystream -vframes 1 -r 1",
+            "vcodec": "libx264",
+            "maxWidth": 640,
+            "maxHeight": 480,
+            "maxFPS": 10,
+            "maxBitrate": 50
+          }
+        }
+      ]
+    }
+  ]
+}
